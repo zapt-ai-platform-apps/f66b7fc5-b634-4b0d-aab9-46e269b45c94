@@ -17,17 +17,23 @@ export default function AuditsPage() {
       try {
         const { data: { session } } = await supabase.auth.getSession();
         const response = await fetch('/api/audits', {
+          method: 'GET',
           headers: {
             Authorization: `Bearer ${session?.access_token}`
           }
         });
         
-        if (!response.ok) throw new Error('Failed to fetch audits');
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(`Failed to fetch audits: ${errorText}`);
+        }
+        
         const data = await response.json();
         setAudits(data);
       } catch (error) {
         Sentry.captureException(error);
         console.error('Error fetching audits:', error);
+        alert('Failed to load audits. Please refresh the page.');
       } finally {
         setLoading(false);
       }
