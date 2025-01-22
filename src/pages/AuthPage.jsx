@@ -54,10 +54,6 @@ export default function AuthPage() {
             />
           </div>
         )}
-
-        <div className="mt-8 text-center text-sm text-gray-500">
-          <p>Enterprise-grade security • SOC 2 Type II compliant</p>
-        </div>
       </div>
     </div>
   );
