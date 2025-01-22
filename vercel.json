@@ -11,7 +11,7 @@
   ],
   "functions": {
     "api/*.js": {
-      "includeFiles": "_apiUtils.js,../drizzle/schema.js"
+      "includeFiles": "api/_apiUtils.js,../drizzle/schema.js"
     }
   }
 }
