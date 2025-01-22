@@ -30,7 +30,7 @@ export default function App() {
   if (loading) return <LoadingSpinner fullScreen />;
 
   return (
-    <Layout>
+    <Layout session={session}>
       <Routes>
         <Route path="/" element={session ? <AuditsPage /> : <AuthPage />} />
         <Route path="/audits" element={session ? <AuditsPage /> : <AuthPage />} />
