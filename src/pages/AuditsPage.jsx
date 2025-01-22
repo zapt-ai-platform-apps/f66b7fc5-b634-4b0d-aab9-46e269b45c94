@@ -50,7 +50,7 @@ export default function AuditsPage() {
   if (loading) return <LoadingSpinner fullScreen />;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold text-gray-900">Audit Management</h1>
         <button

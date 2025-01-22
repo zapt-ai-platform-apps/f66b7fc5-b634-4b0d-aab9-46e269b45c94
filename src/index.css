@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom auth form styles */
+.supabase-auth-ui_ui-button {
+  @apply transition-all duration-200 hover:shadow-md !important;
+}
+
+.supabase-auth-ui_ui-input {
+  @apply border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 !important;
+}
+
+.supabase-auth-ui_ui-provider-button {
+  @apply flex items-center justify-center space-x-3 border border-gray-200 hover:border-gray-300 !important;
+}
+
+.supabase-auth-ui_ui-message {
+  @apply text-center !important;
+}

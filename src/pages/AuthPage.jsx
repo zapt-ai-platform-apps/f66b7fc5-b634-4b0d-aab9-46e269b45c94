@@ -45,7 +45,7 @@ export default function AuthPage() {
             <Auth
               supabaseClient={supabase}
               providers={['google', 'facebook', 'apple']}
-              socialLayout="horizontal"
+              socialLayout="vertical"
               magicLink={true}
               appearance={appearance}
               theme="default"

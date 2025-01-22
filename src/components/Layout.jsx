@@ -1,10 +1,17 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Footer } from './Footer';
+import { supabase } from '../supabaseClient';
 
 export const Layout = ({ children, session }) => {
   const location = useLocation();
-  
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    await supabase.auth.signOut();
+    navigate('/');
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       {session && (
@@ -19,7 +26,7 @@ export const Layout = ({ children, session }) => {
               <Link to="/" className="text-xl font-semibold text-gray-900">Mercury Support Portal</Link>
             </div>
             
-            <div className="flex space-x-6">
+            <div className="flex items-center space-x-6">
               <Link 
                 to="/audits" 
                 className={`px-3 py-2 rounded-md text-sm font-medium ${location.pathname === '/audits' ? 'bg-blue-50 text-blue-700' : 'text-gray-600 hover:text-blue-700'}`}
@@ -38,12 +45,18 @@ export const Layout = ({ children, session }) => {
               >
                 Incidents
               </Link>
+              <button
+                onClick={handleSignOut}
+                className="text-red-600 hover:text-red-800 text-sm font-medium px-3 py-2"
+              >
+                Sign Out
+              </button>
             </div>
           </div>
         </nav>
       )}
 
-      <main className="container mx-auto p-6 flex-grow">
+      <main className="container mx-auto p-6 flex-grow mt-16">
         {children}
       </main>
 
